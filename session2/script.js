@@ -100,12 +100,28 @@ function formatStr(str) {
 //CHALLENGE 5: LETTER CHANGES
 //Change every letter of the string to the one that follows it and capitalized the vowels
 
+function letterChanges(str) {
+  let newStr = str.replace(/[a-z]/gi, (char) => {
+    if (char === "z" || char === "Z") {
+      return "A";
+    } else {
+      return String.fromCharCode(char.charCodeAt() + 1);
+    }
+  });
+
+  //capitalize the vowels
+  newStr = newStr.replace(/a|e|i|o|u/gi, (vowel) => vowel.toUpperCase());
+  return newStr;
+}
+
 //////////////////////////////////
 //functions calls
 console.log(logestWord("hello, world, hi"));
 console.log(chunkArray([1, 2, 3, 4, 5, 6, 7], 3));
 console.log(flattenArrar([[1, 2], [3, [3, 4], 4], [5, 6], [7]]));
 console.log(isAnagram("Dormitory", "dirty room##"));
+console.log(letterChanges("i love javascript"));
+// console.log(letterChanges("Hi zi hello"));
 
 //push a new arr into an array
 // const arr1 = ["hello"];
