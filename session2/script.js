@@ -78,11 +78,33 @@ function flattenArrar(arrays) {
 }
 
 //////////////////////////////////
+//CHALLENGE 3: ANAGRAM - words that have the same characters
+//return true if anagram or false if not /ex:'elbow' === 'below', or 'Dormitory' === 'dirty room##'
+
+function isAnagram(str1, str2) {
+  //solution 1: NOT the best way
+  // const sortedStr1 = str1.toLowerCase().match(/[a-z]/g).sort().join("");
+  // const sortedStr2 = str2.toLowerCase().match(/[a-z]/g).sort().join("");
+  // return sortedStr1 === sortedStr2;
+  //////////
+  //solution 2: with a helper function
+  return formatStr(str1) === formatStr(str2);
+}
+
+function formatStr(str) {
+  return str.toLowerCase().match(/[a-z]/g).sort().join("");
+}
+
+//////////////////////////////////
+//CHALLENGE 5: LETTER CHANGES
+//Change every letter of the string to the one that follows it and capitalized the vowels
+
 //////////////////////////////////
 //functions calls
 console.log(logestWord("hello, world, hi"));
 console.log(chunkArray([1, 2, 3, 4, 5, 6, 7], 3));
 console.log(flattenArrar([[1, 2], [3, [3, 4], 4], [5, 6], [7]]));
+console.log(isAnagram("Dormitory", "dirty room##as"));
 
 //push a new arr into an array
 // const arr1 = ["hello"];
