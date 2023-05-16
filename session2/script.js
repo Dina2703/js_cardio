@@ -59,12 +59,32 @@ function chunkArray(arr, len) {
 }
 
 //////////////////////////////////
+//CHALLENGE 3: FLATTEN ARRAY
+//take an array of arrays and flatten to a single array
+function flattenArrar(arrays) {
+  //solution 1. with flat(method), with passed in 'Infinity' to make deep flattening, in case of multiple  nested arrays
+  // return arrays.flat(Infinity);
+  ////////////
+  //solution 2: with reduce(), only flattens one layer nested arrays
+  // return arrays.reduce((a, b) => {
+  //   return a.concat(b);
+  // });
+  ////////////
+  //solution 3: with apply(), only flattens one layer nested arrays
+  // return [].concat.apply([], arrays);
+  ////////////
+  //solution 4: with spread operator, only flattens one layer nested arrays
+  return [].concat(...arrays);
+}
 
 //////////////////////////////////
 //////////////////////////////////
 //functions calls
 console.log(logestWord("hello, world, hi"));
 console.log(chunkArray([1, 2, 3, 4, 5, 6, 7], 3));
-const arr1 = ["hello"];
-arr1.push([1]);
-console.log(arr1);
+console.log(flattenArrar([[1, 2], [3, [3, 4], 4], [5, 6], [7]]));
+
+//push a new arr into an array
+// const arr1 = ["hello"];
+// arr1.push([1]);
+// console.log(arr1);
