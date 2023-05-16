@@ -92,7 +92,8 @@ function isAnagram(str1, str2) {
 }
 
 function formatStr(str) {
-  return str.toLowerCase().match(/[a-z]/g).sort().join("");
+  // return str.toLowerCase().match(/[a-z]/g).sort().join(""); //with match([a-z]), it creates a new array only containing chars a to z letters
+  return str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join(""); //with replace(/[^\w]/g, "") tells start from the beginning and replace all NOT word chars inot empty space
 }
 
 //////////////////////////////////
@@ -104,7 +105,7 @@ function formatStr(str) {
 console.log(logestWord("hello, world, hi"));
 console.log(chunkArray([1, 2, 3, 4, 5, 6, 7], 3));
 console.log(flattenArrar([[1, 2], [3, [3, 4], 4], [5, 6], [7]]));
-console.log(isAnagram("Dormitory", "dirty room##as"));
+console.log(isAnagram("Dormitory", "dirty room##"));
 
 //push a new arr into an array
 // const arr1 = ["hello"];
