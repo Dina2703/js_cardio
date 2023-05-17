@@ -27,7 +27,32 @@ function sortByHeight(a) {
   return sorted;
 }
 ////////////////////////////
+//CHALLENGE 5: MISSING LETTERS
+//find the missing letters in the passed letter range nd return it. If all letters are present return undefined.
+//ex.missingLetters('abce')== 'd'
+//ex.missingLetters('abcdefghjklmno')== 'i'
+
+function missingLetters(str) {
+  //the charCodeAt() method returns the Unicode of the character at a specified index (position) in a string.The index of the first character is 0, the second is 1,
+  //compare variable will hold starting charcode number, for 'a' letter
+  let compare = str.charCodeAt(0); //returns the character at 0 index position
+  let missing = [];
+  //convert parameters into an array
+  str.split("").map((char, i) => {
+    if (str.charCodeAt(i) == compare) {
+      compare++;
+    } else {
+      //String.fromCharCode(compare) returns the character of a missing charcode
+
+      missing = String.fromCharCode(compare);
+    }
+  });
+  return missing;
+}
+
 ////////////////////////////
 //function calls
 console.log(seekAndDestroy([2, 3, 4, 6, 6, "hello"], 2, 6));
 console.log(sortByHeight([-1, 100, 160, -1, -1, 130, 180]));
+console.log(missingLetters("abcdefghjklmno"));
+// console.log(String.fromCharCode(80));
