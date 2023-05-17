@@ -8,7 +8,7 @@ function addAll(numbers) {
   var args = Array.prototype.slice.call(arguments);
   //add each number
   let total = 0;
-  for (i = 0; i < args.length; i++) {
+  for (let i = 0; i < args.length; i++) {
     total += args[i];
   }
   return total;
@@ -29,6 +29,33 @@ function addAll2(...numbers) {
 
 /////////////////////////////////////
 
+//CHALLENGE 2: SUMM ALL PRIMES
+//Pass in a number to loop up to and add all of the prime numbers.
+//A prime numbers is a whole number greater than 1 whose only factors are 1 and itself(2, 3, 5, 7 ,etc) ex: sumAllPrimes(10) output is 17
+
+function summAllPrimes(number) {
+  //my helper func
+  function checkForPrime(i) {
+    for (let j = 2; j < i; j++) {
+      if (i % j === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  let total = 0;
+  for (let i = 2; i <= number; i++) {
+    if (checkForPrime(i)) {
+      total += i;
+    }
+  }
+  return total;
+}
+/////////////////////////////////////
+/////////////////////////////////////
+
 //function calls
 console.log(addAll(2, 5, 6));
 console.log(addAll2(2, 5, 6));
+console.log(summAllPrimes(10));
