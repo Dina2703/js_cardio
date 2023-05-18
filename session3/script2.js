@@ -33,6 +33,7 @@ function sortByHeight(a) {
 //ex.missingLetters('abcdefghjklmno')== 'i'
 
 function missingLetters(str) {
+  //solution 1:
   //the charCodeAt() method returns the Unicode of the character at a specified index (position) in a string.The index of the first character is 0, the second is 1,
   //compare variable will hold starting charcode number, for 'a' letter
   let compare = str.charCodeAt(0); //returns the character at 0 index position
@@ -43,16 +44,44 @@ function missingLetters(str) {
       compare++;
     } else {
       //String.fromCharCode(compare) returns the character of a missing charcode
-
+      console.log(compare);
       missing = String.fromCharCode(compare);
     }
   });
   return missing;
 }
 
+//////////////
+//solution 2:
+function missingLetters2(str) {
+  for (let i = 0; i < str.length; i++) {
+    if (str.charCodeAt(i + 1) - str.charCodeAt(i) > 1) {
+      const missingLetterIndex = str.charCodeAt(i) + 1;
+      return String.fromCharCode(missingLetterIndex);
+    }
+  }
+}
+
+////////////////////////////
+//CHALLENGE 6: EVEN & ODD SUMS
+//Take in an array and return an array of sums of even and odd numbers
+//ex: evenOddSums([50, 60, 71, 60, 45]) == [170, 116]
+
+function evenOddSums(arr) {
+  let oddSum = 0;
+  let evenSum = 0;
+  for (number of arr) {
+    number % 2 === 1 ? (oddSum += number) : (evenSum += number);
+  }
+
+  return [evenSum, oddSum];
+}
+
 ////////////////////////////
 //function calls
 console.log(seekAndDestroy([2, 3, 4, 6, 6, "hello"], 2, 6));
 console.log(sortByHeight([-1, 100, 160, -1, -1, 130, 180]));
-console.log(missingLetters("abcdefghjklmno"));
+console.log(missingLetters("abdf"));
+console.log(missingLetters2("abdf"));
+console.log(evenOddSums([50, 60, 71, 60, 45]));
 // console.log(String.fromCharCode(80));
